@@ -43,6 +43,14 @@ public class GameController : SceneController
     /// Le nombre de points de vie gagne par seconde
     /// </summary>
     [SerializeField] private float hpRecoveredPerSec = 5.0f;
+    /// <summary>
+    /// Le temps entre les sons de zombies
+    /// </summary>
+    [SerializeField] private float timeBetweenSounds = 6.0f;
+    /// <summary>
+    /// Un tableau de sons de zombies
+    /// </summary>
+    [SerializeField] private AudioSource[] zombieSounds;
 
     /// <summary>
     /// Instancier le Singleton et mettre les valeurs de base
@@ -70,6 +78,7 @@ public class GameController : SceneController
         textScore.ChangeValue(this.score);
         textScoreMultiplier.ChangeValue(this.ScoreMultiplier);
         healthBar.value = hp;
+        StartCoroutineZombieSound();
     }
 
     /// <summary>
@@ -87,6 +96,36 @@ public class GameController : SceneController
             hp = maxHp;
         }
         healthBar.value = hp;
+    }
+
+    /// <summary>
+    /// Commence la coroutine de sons de zombies
+    /// </summary>
+    public void StartCoroutineZombieSound()
+    {
+        StartCoroutine(nameof(CoroutineZombieSound));
+    }
+
+    /// <summary>
+    /// Lance un son de zombie lorsque la coroutine est terminee
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator CoroutineZombieSound()
+    {
+        // Attend ce nombre de secondes dans le jeu (échelle du temps de jeu)
+        yield return new WaitForSeconds(timeBetweenSounds);
+
+        ZombieSound();
+        StartCoroutineZombieSound();
+    }
+
+    /// <summary>
+    /// Lance un son aleatoire dans le tableau de sons
+    /// </summary>
+    private void ZombieSound()
+    {
+        int randomSoundIndex = Random.Range(0, zombieSounds.Length);
+        zombieSounds[randomSoundIndex].Play();
     }
 
     /// <summary>
