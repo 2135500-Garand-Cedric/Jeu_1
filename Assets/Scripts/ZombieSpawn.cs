@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 /// <summary>
-/// S'occupe de la mecanique de spawn des zombies
+/// S'occupe de la mécanique de spawn des zombies
 /// </summary>
 public class ZombieSpawn : MonoBehaviour
 {
@@ -18,7 +18,7 @@ public class ZombieSpawn : MonoBehaviour
     /// </summary>
     [SerializeField] private Collider map;
     /// <summary>
-    /// Le GameObject a initialiser
+    /// Le GameObject à initialiser
     /// </summary>
     [SerializeField] private GameObject prototype;
     /// <summary>
@@ -30,19 +30,19 @@ public class ZombieSpawn : MonoBehaviour
     /// </summary>
     [SerializeField] private float spawnPerMin = 20.0f;
     /// <summary>
-    /// Les parametres d'augementation de vitesse de spawn
+    /// Les paramètres d'augmentation de vitesse de spawn
     /// </summary>
     [SerializeField] private float maxSpawnIncreasePerSec = 1.0f;
     [SerializeField] private float minSpawnIncreasePerSec = 0.5f;
     private float spawnIncreasePerSec;
     /// <summary>
-    /// Les parametres de vitesse de zombie
+    /// Les paramètres de vitesse de zombie
     /// </summary>
     [SerializeField] private float maxZombieSpeed = 10.0f;
     [SerializeField] private float minZombieSpeed = 4.0f;
     private float zombieSpeed;
     /// <summary>
-    /// Les paramtres de degats des zombies
+    /// Les paramètres de dégats des zombies
     /// </summary>
     [SerializeField] private float maxDamage = 15.0f;
     [SerializeField] private float minDamage = 5.0f;
@@ -53,7 +53,7 @@ public class ZombieSpawn : MonoBehaviour
     private Vector3 spawnPoint;
 
     /// <summary>
-    /// Demarre le processus de spawn lors de l'initialisation de l'objet
+    /// Démarre le processus de spawn lors de l'initialisation de l'objet
     /// </summary>
     void Start()
     {
@@ -61,7 +61,7 @@ public class ZombieSpawn : MonoBehaviour
     }
 
     /// <summary>
-    /// Augmente la vitesse de spawn a chaque frame
+    /// Augmente la vitesse de spawn à chaque frame
     /// </summary>
     void Update()
     {
@@ -69,7 +69,7 @@ public class ZombieSpawn : MonoBehaviour
     }
 
     /// <summary>
-    /// Genere un nouveau point de spawn et genere le zombie a cette position
+    /// Génère un nouveau point de spawn et génère le zombie à cette position
     /// </summary>
     public void Spawn()
     {
@@ -82,19 +82,19 @@ public class ZombieSpawn : MonoBehaviour
     }
 
     /// <summary>
-    /// Genere un point de spawn 
+    /// Génère un point de spawn 
     /// </summary>
     /// <returns>vrai si un point de spawn valide a ete trouve, faux sinon</returns>
     private bool GenerateRandomSpawnPoint()
     {
         bool spawnPointFound = false;
         spawnPoint = GenerateRandomPoint();
-        // Le point doit etre dans un rayon plus grand que 7 autour de la voiture
+        // Le point doit être dans un rayon plus grand que 7 autour de la voiture
         if (Vector3.Distance(spawnPoint, car.transform.position) > 7)
         {
             spawnPointFound = true;
         }
-        // Verifie si le point de spawn est a l'interieur d'un batiment
+        // Vérifie si le point de spawn est à l'interieur d'un batiment
         foreach (Collider collider in buildings)
         {
             if (collider.bounds.Contains(spawnPoint))
@@ -107,7 +107,7 @@ public class ZombieSpawn : MonoBehaviour
     }
 
     /// <summary>
-    /// Cree la nouvelle instance de zombie
+    /// Crée la nouvelle instance de zombie
     /// </summary>
     private void CreateInstance()
     {
@@ -119,8 +119,8 @@ public class ZombieSpawn : MonoBehaviour
     }
 
     /// <summary>
-    /// Recupere la difficulte de la partie pour determiner les differents parametres du jeu.
-    /// Se fait lorsque le script est initialise
+    /// Recupère la difficulté de la partie pour determiner les differents paramètres du jeu.
+    /// Se fait lorsque le script est initialisé
     /// </summary>
     void OnEnable()
     {
@@ -153,9 +153,9 @@ public class ZombieSpawn : MonoBehaviour
 
     // code inspire de ce site https://hamy.xyz/labs/unity-how-to-find-a-random-point-within-a-collider-mesh
     /// <summary>
-    /// Genere un point aleatoire sur la carte
+    /// Génère un point aléatoire sur la carte
     /// </summary>
-    /// <returns>un point aleatoire sur la carte</returns>
+    /// <returns>un point aléatoire sur la carte</returns>
     public Vector3 GenerateRandomPoint()
     {
         float minX = map.bounds.size.x * -0.5f;

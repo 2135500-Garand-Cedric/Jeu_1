@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Ajoute des methodes a la composante Slider
+/// Ajoute des méthodes à la composante Slider
 /// </summary>
 [RequireComponent(typeof(Slider))]
 public class SliderExtension : MonoBehaviour
 {
     /// <summary>
-    /// L'attribu qui stocke la difficulte
+    /// L'attribut qui stocke la difficulté
     /// </summary>
     private float difficulty = 50.0f;
     /// <summary>
@@ -35,7 +35,7 @@ public class SliderExtension : MonoBehaviour
     }
 
     /// <summary>
-    /// Lorsque le script est desactive, enregistre la difficulte dans les PlayerPrefs
+    /// Lorsque le script est desactivé, enregistre la difficulté dans les PlayerPrefs
     /// </summary>
     void OnDisable()
     {

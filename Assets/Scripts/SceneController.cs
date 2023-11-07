@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// S'occupe de se deplacer entre les scenes
+/// S'occupe de se deplacer entre les scènes
 /// </summary>
 public class SceneController : MonoBehaviour
 {
     /// <summary>
-    /// Charge la nouvelle scene
+    /// Charge la nouvelle scène
     /// </summary>
-    /// <param name="newScene">la scene a charger</param>
+    /// <param name="newScene">la scène à charger</param>
     public void ChangeScene(string newScene)
     {
         SceneManager.LoadScene(newScene);

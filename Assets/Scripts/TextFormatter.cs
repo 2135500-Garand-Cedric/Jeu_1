@@ -17,9 +17,9 @@ public class TextFormatter : MonoBehaviour
     }
 
     /// <summary>
-    /// Change les deux dieses par un valeur
+    /// Change les deux dièses par un valeur
     /// </summary>
-    /// <param name="value">la valeur a mettre</param>
+    /// <param name="value">la valeur à mettre</param>
     public void ChangeValue(int value)
     {
         GetComponent<TextMeshProUGUI>().text = textModel.Replace("##", value.ToString());

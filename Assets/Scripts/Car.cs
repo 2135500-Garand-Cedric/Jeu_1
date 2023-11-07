@@ -26,15 +26,10 @@ public class Car : InfoChanger
     public Vector3 position = Vector3.zero;
     
     /// <summary>
-    /// S'occupe du deplacement de la voiture
+    /// S'occupe du déplacement de la voiture
     /// </summary>
     void Update()
     {
-        //Debug.DrawRay(this.GetComponent<Rigidbody>().transform.position + this.GetComponent<Rigidbody>().transform.right * 0.0f, this.GetComponent<Rigidbody>().transform.forward * 10, Color.red, 2.0f);
-        //Debug.DrawRay(this.GetComponent<Rigidbody>().transform.position + this.GetComponent<Rigidbody>().transform.right * 0.5f, this.GetComponent<Rigidbody>().transform.forward * 10, Color.red, 2.0f);
-        //Debug.DrawRay(this.GetComponent<Rigidbody>().transform.position + this.GetComponent<Rigidbody>().transform.right * 1.0f, this.GetComponent<Rigidbody>().transform.forward * 10, Color.red, 2.0f);
-        //Debug.DrawRay(this.GetComponent<Rigidbody>().transform.position + this.GetComponent<Rigidbody>().transform.right * -0.5f, this.GetComponent<Rigidbody>().transform.forward * 10, Color.red, 2.0f);
-        //Debug.DrawRay(this.GetComponent<Rigidbody>().transform.position + this.GetComponent<Rigidbody>().transform.right * -1.0f, this.GetComponent<Rigidbody>().transform.forward * 10, Color.red, 2.0f);
         // se deplacer
         if (Input.GetKey(KeyCode.W))
         {
@@ -56,15 +51,16 @@ public class Car : InfoChanger
     }
 
     /// <summary>
-    /// S'occupe de gerer lorsque la voiture entre en collision avec un autre objet
+    /// S'occupe de gèrer lorsque la voiture entre en collision avec un autre objet
     /// </summary>
-    /// <param name="other">L'objet qui est entre en collision avec la voiture</param>
+    /// <param name="other">L'objet qui est entré en collision avec la voiture</param>
     public void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Zombie"))
         {
             bool zombieKill = false;
             float addedVector = -0.6f;
+            // Lance 5 rays devant la voiture et détecte si un zombie a été touché
             while (addedVector <= 0.6f)
             {
                 Vector3 start = this.GetComponent<Rigidbody>().transform.position + this.GetComponent<Rigidbody>().transform.right * addedVector;
@@ -72,7 +68,6 @@ public class Car : InfoChanger
                 end.y = 1.0f;
                 start.y = 1.0f;
                 bool kill = RayTest(new Ray(start, end), other);
-                Debug.DrawRay(this.GetComponent<Rigidbody>().transform.position + this.GetComponent<Rigidbody>().transform.right * addedVector, this.GetComponent<Rigidbody>().transform.forward * 10, Color.red, 10.0f);
                 if (kill)
                 {
                     zombieKill = true;
@@ -93,10 +88,10 @@ public class Car : InfoChanger
     }
 
     /// <summary>
-    /// S'occupe de gerer ce que le Ray a touche lorsque la voiture entre en collision
+    /// S'occupe de gèrer ce que le Ray a touché lorsque la voiture entre en collision
     /// </summary>
-    /// <param name="ray">Le Ray lance</param>
-    /// <param name="other">L'objet qui est entre en collision avec la voiture</param>
+    /// <param name="ray">Le Ray lancé</param>
+    /// <param name="other">L'objet qui est entré en collision avec la voiture</param>
     /// <returns></returns>
     private bool RayTest(Ray ray, Collision other)
     {

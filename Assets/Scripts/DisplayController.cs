@@ -15,7 +15,7 @@ public class DisplayController : MonoBehaviour
     /// </summary>
     private int score = 0;
     /// <summary>
-    /// La difficulte
+    /// La difficulté
     /// </summary>
     private float difficulty = 0.0f;
     /// <summary>
@@ -23,7 +23,7 @@ public class DisplayController : MonoBehaviour
     /// </summary>
     private float finalScore = 0;
     /// <summary>
-    /// Le nomdu joueur
+    /// Le nom du joueur
     /// </summary>
     private string playerName = "";
     /// <summary>
@@ -39,7 +39,7 @@ public class DisplayController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] leaderboardScore;
 
     /// <summary>
-    /// Affiche les informations de la partie lorsque la page de fin est affichee
+    /// Affiche les informations de la partie lorsque la page de fin est affichée
     /// </summary>
     void Start()
     {
@@ -76,7 +76,7 @@ public class DisplayController : MonoBehaviour
     }
 
     /// <summary>
-    /// Lorsque le script est active, va chercher le score et la difficulte dans les PlayerPrefs
+    /// Lorsque le script est activé, va chercher le score et la difficulté dans les PlayerPrefs
     /// </summary>
     void OnEnable()
     {

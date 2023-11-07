@@ -17,7 +17,7 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private GameObject car;
 
     /// <summary>
-    /// Fait en sorte que la camera soit toujours derriere la voiture
+    /// Fait en sorte que la camera soit toujours derrière la voiture
     /// </summary>
     private void LateUpdate()
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// Les evenements
+/// Les évenements
 /// </summary>
 public class InfoChanger : MonoBehaviour
 {

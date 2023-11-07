@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Gere la mecanique du mulitplicateur de score
+/// Gère la mécanique du mulitplicateur de score
 /// </summary>
 [RequireComponent(typeof(Slider))]
 public class ScoreMultiplier : MonoBehaviour
@@ -14,12 +14,18 @@ public class ScoreMultiplier : MonoBehaviour
     /// Le controleur d'animation
     /// </summary>
     private Animator animationController;
-
+    /// <summary>
+    /// Le slider de multiplicateur de score
+    /// </summary>
     [SerializeField] private Slider sliderScoreMultiplier;
-
+    /// <summary>
+    /// La coroutine de multiplicateur de score
+    /// </summary>
     private Coroutine coroutineScoreMultiplier;
-
-    private float tempsMultiplicateurScore = 10.0f;
+    /// <summary>
+    /// Le temps pour monter de multiplicateur de score
+    /// </summary>
+    [SerializeField] private float tempsMultiplicateurScore = 10.0f;
 
     /// <summary>
     /// Va chercher la controleur d'animation du multiplicateur de score
@@ -38,7 +44,7 @@ public class ScoreMultiplier : MonoBehaviour
     }
 
     /// <summary>
-    /// Demarre la coroutine et la stock dans un attribu de la classe
+    /// Démarre la coroutine et la stock dans un attribut de la classe
     /// </summary>
     public void StartCoroutineScoreMultiplier()
     {
@@ -46,7 +52,7 @@ public class ScoreMultiplier : MonoBehaviour
     }
 
     /// <summary>
-    /// Arrete la coroutine
+    /// Arrête la coroutine
     /// </summary>
     public void StopCoroutineScoreMultiplier()
     {
@@ -54,7 +60,7 @@ public class ScoreMultiplier : MonoBehaviour
     }
 
     /// <summary>
-    /// Coroutine qui gere l'avancement du multiplicateur de score
+    /// Coroutine qui gère l'avancement du multiplicateur de score
     /// </summary>
     /// <returns></returns>
     private IEnumerator CoroutineScoreMultiplier()
@@ -78,7 +84,7 @@ public class ScoreMultiplier : MonoBehaviour
     }
 
     /// <summary>
-    /// Met a jour le slider de multiplicateur de score
+    /// Met à jour le slider de multiplicateur de score
     /// </summary>
     /// <param name="percentage">le pourcentage d'avancement du slider</param>
     private void UpdateSlider(float percentage)
@@ -87,17 +93,17 @@ public class ScoreMultiplier : MonoBehaviour
     }
 
     /// <summary>
-    /// Les actions a faire lorsque le multiplicateur de score augmente
+    /// Les actions à faire lorsque le multiplicateur de score augmente
     /// </summary>
     private void ScoreMultiplierIncrease()
     {
-        animationController.SetTrigger("MultiplicateurScoreAugmente");
+        animationController.SetTrigger("ScoreMultiplierIncrease");
         GameController.Instance.ChangeScoreMultiplier(1);
         StartCoroutineScoreMultiplier();
     }
 
     /// <summary>
-    /// Les actions a faire lorsque le multiplicateur de score diminue
+    /// Les actions à faire lorsque le multiplicateur de score diminue
     /// </summary>
     public void ScoreMultiplierDecrease()
     {
@@ -107,13 +113,13 @@ public class ScoreMultiplier : MonoBehaviour
             GameController.Instance.ChangeScoreMultiplier(-1);
         }
         StartCoroutineScoreMultiplier();
-        animationController.SetTrigger("MultiplicateurScoreDiminue");
+        animationController.SetTrigger("ScoreMultiplierDecrease");
     }
 
     /// <summary>
-    /// Gere l'evenement de changement de multiplicateur de score
+    /// Gère l'évenement de changement de multiplicateur de score
     /// </summary>
-    /// <param name="functionName">la fonction a lancer</param>
+    /// <param name="functionName">la fonction à lancer</param>
     public void ScoreMultiplierChange(string functionName)
     {
         Invoke(functionName, 0.0f);

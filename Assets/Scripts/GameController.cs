@@ -40,7 +40,7 @@ public class GameController : SceneController
     /// </summary>
     [SerializeField] private float maxHp = 100.0f;
     /// <summary>
-    /// Le nombre de points de vie gagne par seconde
+    /// Le nombre de points de vie gagné par seconde
     /// </summary>
     [SerializeField] private float hpRecoveredPerSec = 5.0f;
     /// <summary>
@@ -82,7 +82,7 @@ public class GameController : SceneController
     }
 
     /// <summary>
-    /// Remonte la vie du joueur a chaque frame si la vie est superieure a 0
+    /// Remonte la vie du joueur à chaque frame si la vie est superieure à 0
     /// </summary>
     private void Update()
     {
@@ -107,7 +107,7 @@ public class GameController : SceneController
     }
 
     /// <summary>
-    /// Lance un son de zombie lorsque la coroutine est terminee
+    /// Lance un son de zombie lorsque la coroutine est terminée
     /// </summary>
     /// <returns></returns>
     private IEnumerator CoroutineZombieSound()
@@ -120,7 +120,7 @@ public class GameController : SceneController
     }
 
     /// <summary>
-    /// Lance un son aleatoire dans le tableau de sons
+    /// Lance un son aléatoire dans le tableau de sons
     /// </summary>
     private void ZombieSound()
     {
@@ -138,7 +138,7 @@ public class GameController : SceneController
     }
 
     /// <summary>
-    /// Le joueur recoit des degats
+    /// Le joueur reçoit des dégats
     /// </summary>
     /// <param name="damage">la quantite de degats recus</param>
     public void ReceiveDamage(float damage)
@@ -149,7 +149,7 @@ public class GameController : SceneController
     /// <summary>
     /// Change le multiplicateur de score
     /// </summary>
-    /// <param name="scoreMultiplier">le multiplicateur de score a ajouter</param>
+    /// <param name="scoreMultiplier">le multiplicateur de score à ajouter</param>
     public void ChangeScoreMultiplier(int scoreMultiplier = 1)
     {
         this.ScoreMultiplier += scoreMultiplier;
@@ -157,7 +157,7 @@ public class GameController : SceneController
     }
 
     /// <summary>
-    /// Lorsque le script est desactive, enregistre le score dans les PlayerPrefs
+    /// Lorsque le script est desactivé, enregistre le score dans les PlayerPrefs
     /// </summary>
     void OnDisable()
     {

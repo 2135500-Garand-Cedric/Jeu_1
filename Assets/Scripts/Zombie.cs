@@ -4,7 +4,7 @@ using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
 /// <summary>
-/// S'occupe de gerer le mouvement du zombie
+/// S'occupe de gèrer le mouvement du zombie
 /// </summary>
 public class Zombie : MonoBehaviour
 {
@@ -17,16 +17,16 @@ public class Zombie : MonoBehaviour
     /// </summary>
     [SerializeField] private float moveSpeed = 2.0f;
     /// <summary>
-    /// Les degats par seconde du zombie
+    /// Les dégats par seconde du zombie
     /// </summary>
     private float dps = 5.0f;
     /// <summary>
-    /// La quantite de degats lorsque le zombie entre en collision avec la voiture
+    /// La quantité de dégats lorsque le zombie entre en collision avec la voiture
     /// </summary>
     public float DamageOnCollision { get; private set; } = 10.0f; 
 
     /// <summary>
-    /// Deplace le zombie vers la voiture a chaque frame de jeu
+    /// Deplace le zombie vers la voiture à chaque frame de jeu
     /// </summary>
     void Update()
     {
@@ -54,9 +54,9 @@ public class Zombie : MonoBehaviour
     }
 
     /// <summary>
-    /// Set la quantite de degats du zombie
+    /// Set la quantité de dégats du zombie
     /// </summary>
-    /// <param name="damage">la quantite de degats</param>
+    /// <param name="damage">la quantité de dégats</param>
     public void SetDamage(float damage)
     {
         this.DamageOnCollision = damage;
@@ -66,7 +66,7 @@ public class Zombie : MonoBehaviour
     /// <summary>
     /// Lorsque le zombie reste en contact avec un objet
     /// </summary>
-    /// <param name="other"></param>
+    /// <param name="other">l'objet qui est entré en collision avec le zombie</param>
     private void OnCollisionStay(Collision other)
     {
         if (other.gameObject == car)
